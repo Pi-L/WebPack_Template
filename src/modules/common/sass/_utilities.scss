@@ -1,0 +1,83 @@
+@use '../../../vendors/vendor' as vd;
+@use 'palette';
+@use 'variables' as var;
+@use 'fonts';
+@use 'mixins' as cmx;
+
+// Virtual classes
+// -------------------------------------------
+%noOutlines {
+  &:focus {
+    outline: none;
+  }
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+// Elements
+// -------------------------------------------
+body {
+  background-color: var(--primaryBg);
+  color: var(--primaryTxt);
+  transition: background-color 0.3s, color 0.3s;
+
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6rem;
+}
+
+section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  &::-moz-focus-inner {
+    border: 0;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+// Classes
+// -------------------------------------------
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+// vendors
+.location {
+  @include vd.myFA(fas, map-marker-alt, '\f3c5');
+}
+
+.linkedIn {
+  @include vd.myFA(fab, linkedin, '\f08c');
+}
+.gitHub {
+  @include vd.myFA(fab, github-square, '\f092');
+}
+.codePen {
+  @include vd.myFA(fab, codepen, '\f1cb');
+}
+.stackOverflow {
+  @include vd.myFA(fab, stack-overflow, '\f16c');
+}
+.rootMe {
+  @include vd.myFA(fas, unlock-alt, '\f13e');
+}
+
+/* .html5 {
+@include vd.myFA(fab, html5, '\f13b');
+}
+
+.css3 {
+@include vd.myFA(fab, html5, '\f13b');
+} */

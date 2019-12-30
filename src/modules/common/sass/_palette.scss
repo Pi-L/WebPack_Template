@@ -1,0 +1,17 @@
+body {
+  --primaryBg: #ffffff;
+  --secondaryBg: #f9f6f7;
+  --primaryHighlight: #ff971d;
+  --secondaryHighlight: #015668;
+  --highlightTxt: #f9f6f7;
+  --primaryTxt: #464646;
+  --secondaryTxt: var(--secondaryBg);
+}
+
+body.dark {
+  --primaryBg: #100e17;
+  --secondaryBg: #1e1e24;
+  --primaryHighlight: #e79602;
+  --primaryTxt: #e7e7e8;
+  --secondaryTxt: #fff1cf;
+}
