@@ -7,6 +7,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const common = require('./webpack.common');
 
 const PATHS = {
@@ -38,7 +39,16 @@ module.exports = merge(common, {
     new PurgecssPlugin({
       paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
     }),
-    new CleanWebpackPlugin()
+    // todo : check for parametring + is it problematic ?
+    new CleanWebpackPlugin(),
+    new ImageminPlugin({
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      jpegtran: { progressive: true },
+      optipng: {
+        optimizationLevel: 9
+      }
+
+    })
   ],
   module: {
     rules: [

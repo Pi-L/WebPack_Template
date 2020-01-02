@@ -7,7 +7,13 @@ module.exports = {
     rules: [
       {
         test: /\.html$/,
-        use: ['html-loader']
+        use: [{
+          loader: 'html-loader',
+          options: {
+            attrs: ['img:src', 'img:data-src', 'link:href']
+          }
+        }]
+
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf|woff(2)?|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -30,6 +36,17 @@ module.exports = {
             esModule: false,
             name: '[name].[hash].[ext]',
             outputPath: 'images/'
+          }
+        }
+      },
+      {
+        test: /\.php$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            esModule: false,
+            name: '[name].[hash].[ext]',
+            outputPath: 'forms/'
           }
         }
       }
